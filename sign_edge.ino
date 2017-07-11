@@ -5,7 +5,7 @@
 #define CHIPSET WS2812B
 #define COLOR_ORDER GRB  // WS2812B order
 
-#define FRAMES_PER_SECOND  10
+#define FRAMES_PER_SECOND  30
 
 CRGB leds[NUM_LEDS];
 
@@ -14,6 +14,7 @@ void setup() {
   delay(2000);
   FastLED.addLeds<CHIPSET, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
   FastLED.setMaxPowerInVoltsAndMilliamps(5, 2000);
+  FastLED.setBrightness(50);
 }
 
 void rainbow() {
@@ -26,9 +27,9 @@ int sinelonN() {
     static uint8_t hue = 0;
     static uint8_t dhue = 32;
     static uint8_t dsat = 1;
-    static uint8_t dval = 16;
+    static uint8_t dval = 8; //16;
     static uint8_t num = 5;
-    static uint8_t fade = 5;
+    static uint8_t fade = 10;
     
 
     // colored dots sweeping back and forth, with fading trails
